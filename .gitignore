@@ -1,0 +1,3 @@
+.mitmproxy/*.cer
+.mitmproxy/*.pem
+.mitmproxy/*.p12
