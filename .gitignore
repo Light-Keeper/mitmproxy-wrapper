@@ -2,3 +2,4 @@
 .mitmproxy/*.pem
 .mitmproxy/*.p12
 .idea/
+.lib_dev/
