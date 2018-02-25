@@ -1,6 +1,6 @@
 docker run --rm -it \
       -w /app/workdir \
-      -network host \
+      --network host \
       -v `pwd`/.mitmproxy:/home/mitmproxy/.mitmproxy \
       -v `pwd`:/app \
       mitmproxy/mitmproxy:3.0.0 \
