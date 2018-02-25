@@ -7,6 +7,4 @@ docker run --rm -it \
       mitmproxy \
       --anticache --ssl-insecure --showhost -p 8080 \
       -s /app/script/entry.py
-
-#NETWORK="--network host"
-#TRANSPARENT='--mode transparent'
+      
