@@ -1,7 +1,13 @@
 #!/bin/bash
-DOCKER="docker run --rm -it -v `pwd`/.mitmproxy:/home/mitmproxy/.mitmproxy -v `pwd`:/app -p 8080:8080 -w /app/workdir mitmproxy/mitmproxy:3.0.0"
-PARAMS=' -s /app/script/entry.py'
+DIRS="-v `pwd`/.mitmproxy:/home/mitmproxy/.mitmproxy -v `pwd`:/app"
+#NETWORK="--network host"
+NETWORK="-p 8080:8080"
+DOCKER="docker run --rm -it -w /app/workdir ${NETWORK} ${DIRS} mitmproxy/mitmproxy:3.0.0"
 
-FULL="${DOCKER} mitmproxy ${PARAMS}"
+PARAMS='--ssl-insecure --showhost -p 8080'
+#TRANSPARENT='--mode transparent'
+SCRIT='-s /app/script/entry.py'
+
+FULL="${DOCKER} mitmproxy ${PARAMS} ${TRANSPARENT} ${SCRIT}"
 echo ${FULL}
 ${FULL}
